@@ -1,0 +1,15 @@
+# Core Data and Env
+python-dotenv==1.0.1
+pandas==2.2.1
+
+# Database
+duckdb==1.5.2
+
+# Tableau VDS SDK (Corrected GitHub Path)
+git+https://github.com/tableau/VizQL-Data-Service.git#subdirectory=python_sdk
+tableauserverclient==0.32.0
+
+# LangChain & Tableau Agents
+langchain==0.1.13
+langchain-openai==0.1.1
+langchain-tableau==0.4.35
