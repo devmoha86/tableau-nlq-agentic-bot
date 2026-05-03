@@ -1,15 +1,22 @@
-# Core Data and Env
+# --- Environment & Utilities ---
 python-dotenv==1.0.1
-pandas==2.2.1
 
-# Database
-duckdb==1.5.2
+# --- Database & Data Handling ---
+duckdb==1.0.0
+pandas==2.2.2
 
-# Tableau VDS SDK (Corrected GitHub Path)
-git+https://github.com/tableau/VizQL-Data-Service.git#subdirectory=python_sdk
+# --- Tableau Integration ---
 tableauserverclient==0.32.0
+# Note: official client is bundled in langchain-tableau
 
-# LangChain & Tableau Agents
-langchain==0.1.13
-langchain-openai==0.1.1
+# --- Phase 1: LangChain (Pinned to 0.2.x Goldilocks Zone) ---
+langchain==0.2.16
+langchain-openai==0.1.23
+langchain-core==0.2.43
+langgraph==0.2.16
 langchain-tableau==0.4.35
+
+# --- Phase 2: AWS & Strands Migration ---
+boto3==1.34.69
+langchain-aws==0.1.17
+# strands (to be installed via your private/local repo in Phase 2)

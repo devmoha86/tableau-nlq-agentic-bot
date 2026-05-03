@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: langchain_tableau
+Version: 0.4.35
+Summary: Tableau tools for Agentic use cases with Langchain
+Project-URL: Homepage, https://github.com/Tab-SE/tableau_langchain
+Project-URL: Bug Tracker, https://github.com/Tab-SE/tableau_langchain/issues
+Author: Stephen Price, Joe Constantino, Joseph Fluckiger
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.12.2
+Requires-Dist: aiohttp
+Requires-Dist: langchain
+Requires-Dist: langchain-core
+Requires-Dist: langchain-openai
+Requires-Dist: langgraph
+Requires-Dist: pydantic
+Requires-Dist: pyjwt
+Requires-Dist: python-dotenv
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+#### Tableau tools for Agentic use cases with Langchain
+
+This project builds Agentic tools from Tableau capabilities for use within the [Langchain](https://www.langchain.com/) and [LangGraph](https://langchain-ai.github.io/langgraph/tutorials/introduction/) frameworks.
+
+
