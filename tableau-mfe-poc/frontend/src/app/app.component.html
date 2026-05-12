@@ -1,0 +1,68 @@
+<main class="page">
+  <header class="hero">
+    <p class="eyebrow">Angular MFE · Tableau Embedding API v3</p>
+    <h1>Superstore — Customers View</h1>
+    <p class="subtitle">JWT-brokered embed with programmatic Embedding API v3 controls</p>
+  </header>
+
+  <!-- Top status bar -->
+  <section class="status-grid">
+    <article class="status-card" [class.card-ok]="!loading && !errorMessage && vizReady">
+      <h2>Session</h2>
+      <p *ngIf="loading">⏳ Creating secure session…</p>
+      <p *ngIf="!loading && !errorMessage && !vizReady">✅ Token OK · loading viz…</p>
+      <p *ngIf="!loading && !errorMessage && vizReady" class="ok">✅ Session established · viz ready</p>
+      <p class="error" *ngIf="errorMessage">❌ {{ errorMessage }}</p>
+    </article>
+
+    <article class="status-card">
+      <h2>Performance</h2>
+      <p>Token: <strong>{{ tokenIssuedInMs ?? '—' }} ms</strong></p>
+      <p>First interactive: <strong>{{ renderDurationMs ?? '—' }} ms</strong></p>
+      <p class="meta" *ngIf="correlationId">cid: {{ correlationId }}</p>
+    </article>
+
+    <!-- MFE API controls — active only once viz is ready -->
+    <article class="status-card controls-card">
+      <h2>MFE API Controls</h2>
+      <div class="btn-row">
+        <button (click)="getFilters()" [disabled]="!vizReady || apiCallInProgress">Get Filters</button>
+        <button (click)="refreshData()" [disabled]="!vizReady || apiCallInProgress">Refresh Data</button>
+        <button (click)="exportPdf()" [disabled]="!vizReady">Export PDF</button>
+      </div>
+      <p class="filter-summary" *ngIf="filterSummary">{{ filterSummary }}</p>
+
+      <!-- Sheet switcher -->
+      <div class="sheet-switcher" *ngIf="worksheets.length > 1">
+        <span class="label">Sheets:</span>
+        <button
+          *ngFor="let ws of worksheets"
+          [class.active]="ws === activeSheet"
+          (click)="switchSheet(ws)">{{ ws }}</button>
+      </div>
+    </article>
+  </section>
+
+  <!-- Tableau viz web component -->
+  <section class="viz-frame" *ngIf="embedToken && !errorMessage">
+    <tableau-viz
+      #tableauViz
+      [attr.src]="environment.tableauViewUrl"
+      [attr.token]="embedToken"
+      toolbar="bottom"
+      hide-tabs="false">
+    </tableau-viz>
+  </section>
+
+  <!-- MFE event log -->
+  <section class="event-log" *ngIf="mfeEvents.length">
+    <h2>MFE Event Log <span class="badge">{{ mfeEvents.length }}</span></h2>
+    <ul>
+      <li *ngFor="let e of mfeEvents" [class]="'ev-' + e.type.split(':')[0]">
+        <span class="ev-time">{{ e.time }}</span>
+        <span class="ev-type">{{ e.type }}</span>
+        <span class="ev-detail">{{ e.detail }}</span>
+      </li>
+    </ul>
+  </section>
+</main>

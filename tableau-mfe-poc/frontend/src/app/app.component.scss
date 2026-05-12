@@ -1,0 +1,190 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #f8fbff 0%, #eef4ff 45%, #e6f2f6 100%);
+  color: #0d2a4b;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 2rem 1rem 3rem;
+}
+
+.hero {
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1f5f9c;
+}
+
+h1 {
+  margin: 0.35rem 0;
+  font-size: 2rem;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 70ch;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.status-card {
+  background: #ffffff;
+  border: 1px solid #d4e2f5;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 8px 20px rgba(19, 46, 85, 0.08);
+}
+
+.status-card h2 {
+  margin-top: 0;
+}
+
+.error {
+  color: #9f1239;
+  font-weight: 600;
+}
+
+.meta {
+  color: #375a7f;
+  font-size: 0.85rem;
+}
+
+.viz-frame {
+  margin-top: 1rem;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #d4e2f5;
+  padding: 0.5rem;
+  min-height: 680px;
+}
+
+tableau-viz {
+  width: 100%;
+  min-height: 660px;
+  display: block;
+}
+
+/* ── MFE controls ── */
+.controls-card {
+  grid-column: span 2;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  background: #1f5f9c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+button:hover:not(:disabled) {
+  background: #174e82;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sheet-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.sheet-switcher .label {
+  font-size: 0.8rem;
+  color: #375a7f;
+}
+
+.sheet-switcher button.active {
+  background: #0d2a4b;
+}
+
+.filter-summary {
+  font-size: 0.82rem;
+  color: #375a7f;
+  margin-top: 0.4rem;
+  word-break: break-word;
+}
+
+.card-ok {
+  border-color: #22c55e;
+}
+
+.ok {
+  color: #15803d;
+  font-weight: 600;
+}
+
+/* ── Event log ── */
+.event-log {
+  margin-top: 1.5rem;
+  background: #0d2a4b;
+  color: #c9daf8;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.82rem;
+}
+
+.event-log h2 {
+  margin: 0 0 0.75rem;
+  color: #e2eafc;
+  font-size: 0.95rem;
+}
+
+.badge {
+  background: #1f5f9c;
+  border-radius: 9999px;
+  padding: 0 0.45rem;
+  font-size: 0.75rem;
+}
+
+.event-log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.event-log li {
+  display: grid;
+  grid-template-columns: 70px 140px 1fr;
+  gap: 0.75rem;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.ev-time { color: #7499c9; }
+.ev-type { color: #93c5fd; font-weight: 600; }
+.ev-auth .ev-type { color: #86efac; }
+.ev-viz .ev-type { color: #fde68a; }
+.ev-api .ev-type { color: #c4b5fd; }
